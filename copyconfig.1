@@ -1,0 +1,45 @@
+.TH COPYCONFIG 1 "May 2024" "Version 0.1.0" "User Commands"
+.SH NAME
+copyconfig \- copy dotfiles (config) from a remote repository to your machine
+.SH SYNOPSIS
+.B copyconfig
+[\fI-hvlS\fR] [\fIREPO_LINK\fR]
+.SH DESCRIPTION
+.B copyconfig
+is a script that clones a git repository to your ${HOME} directory
+and creates symbolic links (based on opt flags), which makes it easier to manage
+them
+
+.SH OPTIONS
+
+.TP
+.B \-h
+Display help information and exit.
+
+.TP
+.B \-v
+Display version information and exit.
+
+.TP
+.B \-l
+Create symbolic links manually, ignore directories in .config which are not
+existing commands.
+
+.TP
+.B \-S
+Create symbolic links using GNU Stow.
+
+.SH EXAMPLES
+.TP
+.B copyconfig \-h
+Displays help information.
+.TP
+.B copyconfig -l git@github.com:your_username/you_repository
+Downloads and links your \fIyour_repository\fR repo and removes any unneeded
+packages from the downloaded directory
+
+.SH AUTHOR
+Written by Franciszek Fabiński.
+
+.SH REPORTING BUGS
+github.com/fist-it/bigscript

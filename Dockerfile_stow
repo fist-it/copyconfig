@@ -1,0 +1,20 @@
+FROM ubuntu:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+  git\
+  iputils-ping\
+  stow
+
+COPY copyconfig.sh /script/
+COPY run.sh /script/
+
+# Define working directory
+WORKDIR /script
+
+# Grant permissions
+RUN chmod ugo+x /script/copyconfig.sh
+
+
+# Execute the script
+RUN /script/run.sh
